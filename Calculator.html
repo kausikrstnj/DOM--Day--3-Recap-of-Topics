@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+    <style>
+        /* This is the CSS style for the calculator */
+        .container {
+            width: 300px;
+            margin: 0 auto;
+            border: 2px solid grey;
+            padding: 10px;
+            background-color: beige;
+        }
+
+        .display {
+            width: 280px;
+            height: 40px;
+            margin: 10px;
+            font-size: 20px;
+            text-align: right;
+            background-color: white;
+            border: 2px solid grey;
+        }
+
+        .button {
+            width: 60px;
+            height: 40px;
+            margin: 5px;
+            font-size: 20px;
+            background-color: white;
+            border: 2px solid grey;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <input type="text" id="display" class="display">
+        <button id="clear" class="button">C</button>
+        <button id="modulus" class="button">%</button>
+        <button id="divide" class="button">/</button>
+        <button id="multiply" class="button">*</button>
+        <button id="seven" class="button">7</button>
+        <button id="eight" class="button">8</button>
+        <button id="nine" class="button">9</button>
+        <button id="subtract" class="button">-</button>
+        <button id="four" class="button">4</button>
+        <button id="five" class="button">5</button>
+        <button id="six" class="button">6</button>
+        <button id="add" class="button">+</button>
+        <button id="one" class="button">1</button>
+        <button id="two" class="button">2</button>
+        <button id="three" class="button">3</button>
+        <button id="equal" class="button">=</button>
+        <button id="zero" class="button">0</button>
+        <button id="doublezero" class="button">00</button>
+        <button id="decimal" class="button">.</button>
+    </div>
+    <script>
+        let display = document.getElementById("display");
+        let clear = document.getElementById("clear");
+        let modulus = document.getElementById("modulus");
+        let divide = document.getElementById("divide");
+        let multiply = document.getElementById("multiply");
+        let seven = document.getElementById("seven");
+        let eight = document.getElementById("eight");
+        let nine = document.getElementById("nine");
+        let subtract = document.getElementById("subtract");
+        let four = document.getElementById("four");
+        let five = document.getElementById("five");
+        let six = document.getElementById("six");
+        let add = document.getElementById("add");
+        let one = document.getElementById("one");
+        let two = document.getElementById("two");
+        let three = document.getElementById("three");
+        let equal = document.getElementById("equal");
+        let zero = document.getElementById("zero");
+        let doublezero = document.getElementById("doublezero");
+        let decimal = document.getElementById("decimal");
+        let expression = "";
+
+        // Add an event listener for the input field to validate entered values
+        display.addEventListener("input", function () {
+            let inputValue = display.value.trim();
+
+            if (!/^\d*\.?\d*$/.test(inputValue)) {
+                // Display an error message if non-numeric characters are entered
+                display.value = "";
+                alert("Only numbers are allowed");
+            } else {
+                expression = inputValue;
+            }
+        });
+
+        clear.addEventListener("click", function () {
+            display.value = "";
+            expression = "";
+        });
+
+        modulus.addEventListener("click", function () {
+            expression += "%";
+            display.value = expression;
+        });
+
+        divide.addEventListener("click", function () {
+            expression += "/";
+            display.value = expression;
+        });
+
+        multiply.addEventListener("click", function () {
+            expression += "*";
+            display.value = expression;
+        });
+
+        seven.addEventListener("click", function () {
+            expression += "7";
+            display.value = expression;
+        });
+
+        eight.addEventListener("click", function () {
+            expression += "8";
+            display.value = expression;
+        });
+
+        nine.addEventListener("click", function () {
+            expression += "9";
+            display.value = expression;
+        });
+
+        subtract.addEventListener("click", function () {
+            expression += "-";
+            display.value = expression;
+        });
+
+        four.addEventListener("click", function () {
+            expression += "4";
+            display.value = expression;
+        });
+
+        five.addEventListener("click", function () {
+            expression += "5";
+            display.value = expression;
+        });
+
+        six.addEventListener("click", function () {
+            expression += "6";
+            display.value = expression;
+        });
+
+        add.addEventListener("click", function () {
+            expression += "+";
+            display.value = expression;
+        });
+
+        one.addEventListener("click", function () {
+            expression += "1";
+            display.value = expression;
+        });
+
+        two.addEventListener("click", function () {
+            expression += "2";
+            display.value = expression;
+        });
+
+        three.addEventListener("click", function () {
+            expression += "3";
+            display.value = expression;
+        });
+
+        equal.addEventListener("click", function () {
+            try {
+                let result = eval(expression);
+                display.value = result;
+                expression = result.toString();
+            } catch (error) {
+                display.value = "Invalid expression";
+                expression = "";
+            }
+        });
+
+        zero.addEventListener("click", function () {
+            expression += "0";
+            display.value = expression;
+        });
+
+        doublezero.addEventListener("click", function () {
+            expression += "00";
+            display.value = expression;
+        });
+
+        decimal.addEventListener("click", function () {
+            expression += ".";
+            display.value = expression;
+        });
+
+    </script>
+</body>
+
+</html>
